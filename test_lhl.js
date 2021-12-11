@@ -42,6 +42,11 @@
 // analyizing code to flag programming errors, bugs, stylistic errors and suspicious constructs
 
 //Asynchronous functions
+//sync js read line by line in order, executes each and only when finished then it will move to the next line, if there is a problem that could stop all the code/ program causing performance issues
+//to avoid blocking you can use callbacks, modular code. uses the callstack to keep track of multiple function calls
+//settimeout
+//network requests
+//to maipulate the callbacks order you can use nested functions
 
 //implement sum
 

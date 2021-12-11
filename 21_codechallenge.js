@@ -295,3 +295,61 @@ const organizeData = (receivedData) => {
 
 	return answer;
 };
+
+//20 take in speed (number), missionData (object) and checks (object) as parameters. The goal is to make sure that the speed is within the limits and that the amount of entries per type matches with the checks. If one of the values is a mismatch, return false, if everything is fine, return true.
+
+// Speed will be compared against maxSpeed and minSpeed inclusively and the length of each array inside missionData will be compared to the values inside the dataEntries object values.
+
+const confirmReentryPlans = (speed, missionData, checks) => {
+  const { maxSpeed, minSpeed, dataEntries } = checks;
+  
+  if(speed < minSpeed || speed > maxSpeed){
+    return false;
+  }
+  for(const data in missionData){
+    if(missionData[data].length !== dataEntries[data]){
+      return false;
+    }
+  }
+  return true;
+}
+
+//or
+
+const confirmReentryPlans = (speed, missionData, checks) => {
+  if (speed < checks.maxSpeed && speed > checks.minSpeed) {
+    if (missionData.astro.length === checks.dataEntries.astro) {
+      if (missionData.bio.length === checks.dataEntries.bio) {
+        if (missionData.physics.length === checks.dataEntries.physics) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+};
+
+//21. will take in an array of exchanged messages and an array of organized data. The goal is to parse each message, add them to a list and return an object containing two keys, transcript with the messages, missionData with the missionData object.
+
+// Each message should be parsed using the same structure as the first challenge;
+
+const parseMessage = (obj) =>{
+	transcript= [];
+ for (let obj of exchanges){
+	 transcript.push(`${obj.origin}: ${obj.message}`)
+ } return transcript;
+
+}
+
+const parseMissionSummary = (exchanges, missionData) => {
+
+ 
+}
+
+const parseMissionSummary = (exchanges, missionData) => {
+	transcript= [];
+ for (let obj of exchanges){
+	 transcript.push(`${obj.origin}: ${obj.message}`)
+ }
+ let newObject = {transcript, missionData};
+}

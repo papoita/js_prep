@@ -1,6 +1,8 @@
 //Kata1
-let sumLargestNumbers = function (data) {
-  let sortedNum = data.sort(function (a, b) { return b - a });
+let sumLargestNumbers = function(data) {
+  let sortedNum = data.sort(function(a, b) {
+    return b - a;
+  });
   return sortedNum[0] + sortedNum[1];
 };
 
@@ -9,15 +11,15 @@ console.log(sumLargestNumbers([1, 10]));
 console.log(sumLargestNumbers([1, 2, 3]));
 console.log(sumLargestNumbers([10, 4, 34, 6, 92, 2]));
 //kata2
-const conditionalSum = function (values, condition) {
+const conditionalSum = function(values, condition) {
 
   let array = 0;
 
   for (let i = 0; i < values.length; i++) {
     if (condition === "even" && values[i] % 2 === 0) {
-      array += values[i]
+      array += values[i];
     } else if (condition === "odd" && values[i] % 2 !== 0) {
-      array += values[i]
+      array += values[i];
     }
   }
   return array;
@@ -29,7 +31,7 @@ console.log(conditionalSum([13, 88, 12, 44, 99], "even"));
 console.log(conditionalSum([], "odd"));
 
 //kata 3
-function numberOfVowels(data) {
+const numberOfVowels = function(data) {
   console.log(data);
   let vowels = [];
   for (let i = 0; i < data.length; i++) {
@@ -41,13 +43,13 @@ function numberOfVowels(data) {
       vowels += data[i];
     }
   } return vowels.length;
-}
+};
 
 
 console.log(numberOfVowels("orange")); //3
 //kata 4
-function instructorWithLongestName(instructors) {
-  let instructorName = [];
+const instructorWithLongestName = function(instructors) {
+  //let instructorName = [];
   let longestName = instructors[0];
   console.log(instructors[0].name);
   console.log(instructors[0].name.length);
@@ -58,13 +60,14 @@ function instructorWithLongestName(instructors) {
       longestName = instructors[i].name;
       console.log(longestName);
       console.log('we got here');
-      return instructors[i];
       console.log(instructors[i]);
+      return instructors[i];
+      
     }
 
   }
 
-}
+};
 console.log(instructorWithLongestName([
   { name: "Samuel", course: "iOS" },
   { name: "Jeremiah", course: "Web" },
@@ -73,29 +76,45 @@ console.log(instructorWithLongestName([
 ]));
 
 //kata5
+//%20 encoded string to replace white spaces
+const urlEncode = (text) => {
+  let encodedText = " ";
+  text = text.trim();
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] == " ") {
+      encodedText = encodedText + "20%";
+      //console.log("Am i doing this loop");
+//console.log(encodedText);
+    } else {
+      encodedText += text[i];
+      //console.log("Am i doing this second loop");
+    }
+
+  } return encodedText;
+}
+console.log(urlEncode("blue is greener than purple for sure"));
 
 //kata 6
-const whereCanIPark = function (spots, vehicle) {
+const whereCanIPark = function(spots, vehicle) {
   const results = [];
-  for(let row=0; row<spots.length;  row++ ){
-    for (let col=0; col<spots[row].length;  col++ ){
+  for (let row = 0; row < spots.length;  row++) {
+    for (let col = 0; col < spots[row].length;  col++) {
       const value = spots[row][col];
    
-if(value === value.toUpperCase()){
-//console.log(`There is a ${value} at space ${row}, ${col}`);
-if((value === "R" || value === "M" || value === "S") && vehicle === "motorcycle"){
-  results.push([col, row]);
+      if (value === value.toUpperCase()) {
+        //console.log(`There is a ${value} at space ${row}, ${col}`);
+        if ((value === "R" || value === "M" || value === "S") && vehicle === "motorcycle") {
+          results.push([col, row]);
   
 
-}
-    }
+        }
+      }
     }
     
   }
   
- return results;
+  return results;
 };
-
 
 
 console.log(whereCanIPark(
@@ -108,6 +127,15 @@ console.log(whereCanIPark(
     ['S', 'r', 'S', 'M', 'm', 'S']
   ],
   'motorcycle'
-))
+));
 
-///
+///kata 7
+
+const checkAir = function (samples, threshold) {
+
+};
+
+console.log(checkAir(
+  ['clean', 'clean', 'dirty', 'clean', 'dirty', 'clean', 'clean', 'dirty', 'clean', 'dirty'],
+  0.3
+));

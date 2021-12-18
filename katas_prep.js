@@ -130,12 +130,56 @@ console.log(whereCanIPark(
 ));
 
 ///kata 7
-
 const checkAir = function (samples, threshold) {
+  let dirtySamples = 0;
+  let contamination = 0;
+  for (let i = 0; i < samples.length; i++) {
+    if (samples[i] === "dirty") {
+      dirtySamples++;
+    }
+    //console.log(dirtySamples);}
 
+    contamination = (dirtySamples / samples.length);
+    if (contamination > threshold) {
+      console.log("polluted");
+    } else {
+      console.log("clean");
+    }
+
+  }
 };
 
-console.log(checkAir(
-  ['clean', 'clean', 'dirty', 'clean', 'dirty', 'clean', 'clean', 'dirty', 'clean', 'dirty'],
-  0.3
-));
+
+//kata 8
+//kata 12
+//initial part only showing amtching ingredietn from one bakery
+
+const ingredientCheck = function (recipes, bakeryA){
+    for (let recipe of recipes){
+        if(bakeryA.includes(recipe.ingredients[0]) || bakeryA.includes(recipe.ingredients[1])){
+            return recipe.name;
+        }
+        
+    }
+}
+    
+
+
+
+let bakeryA = ['saffron', 'eggs', 'tomato paste', 'coconut', 'custard'];
+let bakeryB = ['milk', 'butter', 'cream cheese'];
+let recipes = [
+  {
+    name: 'Coconut Sponge Cake',
+    ingredients: ['coconut', 'cake base']
+  },
+  {
+    name: 'Persian Cheesecake',
+    ingredients: ['saffron', 'cream cheese']
+  },
+  {
+    name: 'Custard Surprise',
+    ingredients: ['custard', 'ground beef']
+  }
+];
+console.log(ingredientCheck(recipes, bakeryA));

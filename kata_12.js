@@ -13,24 +13,21 @@
 //     }
 //   }
 
-  //   for (let item of bakeryB){
-  //     if(recipes.ingredients === item){
-  //       console.log( recipes.name);
-  //   }
-  // }
+//   for (let item of bakeryB){
+//     if(recipes.ingredients === item){
+//       console.log( recipes.name);
+//   }
+// }
 
 
-
-const ingredientCheck = function (recipes, bakeryA){
-    for (let recipe of recipes){
-        if(bakeryA.includes(recipe.ingredients[0]) || bakeryA.includes(recipe.ingredients[1])){
-            return recipe.name;
-        }
-        
+const ingredientCheck = function(recipes, bakeryA) {
+  for (let recipe of recipes) {
+    if (bakeryA.includes(recipe.ingredients[0]) || bakeryA.includes(recipe.ingredients[1])) {
+      return recipe.name;
     }
-}
-    
-
+        
+  }
+};
 
 
 let bakeryA = ['saffron', 'eggs', 'tomato paste', 'coconut', 'custard'];

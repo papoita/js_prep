@@ -51,6 +51,19 @@ const addAstronautToRoster = (roster, astronaut) => {
 
 //7. convert temp from Fahrenheit to Celcius
 // convert windspeed from miles/hour to meters/second and round before storing
+//input
+//  const temperature = 32
+//     const condition = "Sunny with small clouds"
+//     const windSpeed = 20
+//     const windDirection = "NNE
+// output
+// 	 {
+//       temperature:0,
+//       windSpeed:9,
+//       windDirection:"NNE",
+//       condition:"Sunny with small clouds"
+//     }
+    	
 const storeWeatherConditions = (
 	temperature,
 	condition,
@@ -73,11 +86,36 @@ const storeWeatherConditions = (
 };
 
 //8. amount of items in array
+// Input
+// const exampleRoster = [
+//       {
+//         firstName:"Chris",
+//         lastName: "Hadfield",
+//         nickname:"Space Oddity",
+//         prefix:"Astronaut",
+//         job:"Shuttle DJ"
+//       }
+//     ]
+
 const countActiveAstronauts = (roster) => {
 	return roster.length;
 };
 
 //9. takes in array and return array that just returns one property for each object
+// Input
+
+//     const exampleRoster = [
+//       {
+//         ...
+//         job:"Shuttle DJ"
+//       },
+//       {
+//         ...
+//         job:"Space Cook"
+//       }
+//     ] 
+// output
+//    ["Shuttle DJ", "Space Cook"]
 
 const listAstronautJobs = (roster) => {
 	const jobArray = [];
@@ -88,6 +126,26 @@ const listAstronautJobs = (roster) => {
 };
 
 //10. array of weather objs and return a rounded average of one poperty. unkown amount of entries so use loops
+// Input
+
+//     const exampleEntries = [
+//       { 
+//         temperature:0, 
+//         weather:"sunny", 
+//         windDirection: "NNE", 
+//         windSpeed:24
+//       },
+//       { 
+//         temperature:10, 
+//         weather:"cloudy", 
+//         windDirection: "NNE", 
+//         windSpeed:9 
+//       }
+//     ]
+// output 
+
+// 17
+
 const averageWindSpeed = (weatherEntries) => {
 	let answer = 0;
 	for (let obj of weatherEntries) {
@@ -171,6 +229,30 @@ const getAverageSpeed = (firstPosition, secondPosition) => {
 };
 
 //17. take in an array of toggle objects and a specific toggle name. The goal is to switch only the specific toggle, without affecting the other toggles and then return the updated array.
+// input 
+// const toggleList = [
+//   {
+//     name: "toggleA",
+//     isOn: false
+//     }, 
+//   {
+//     name: "toggleB",
+//     isOn: true
+//   }
+// ]
+// const specificToggle = "toggleA"
+// output 
+// [
+//   {
+//     name: "toggleA",
+//     isOn: true
+//   }, 
+//   {
+//     name: "toggleB",
+//     isOn: true
+//   }
+// ]
+
 const switchSpecificToggle = (toggleList, specificToggle) => {
 	for (let obj of toggleList) {
 		if (obj.name === specificToggle) {
@@ -269,6 +351,22 @@ const chooseLunchWinner = (listOfChoices) => {
 //for every element, append the data to the matching type key
 
 //return the structure
+// input 
+// const listOfReceivedData = [
+//   {type: "astro", data: "Saturn Data"},
+//   {type: "bio", data: "Space Potatoes"},
+//   {type: "physics", data: "Lagrange Points"},
+//   {type: "bio", data: "OMG Tardigrades"},
+//   {type: "physics", data: "Material reflectivity"},
+//   {type: "astro", data: "Mercury is not the hottest"},
+// ]
+
+// output 
+// {
+//   "astro":  ["Saturn Data", "Mercury is not the hottest"],
+//   "bio": ["Space Potatoes", "OMG Tardigrades"],
+//   "physics": ["Lagrange Points", "Material reflectivity"],
+// }
 
 const organizeData = (receivedData) => {
 	const objTypes = {};
@@ -287,6 +385,8 @@ const organizeData = (receivedData) => {
 
 	for (let obj of receivedData) {
 		if (answer[obj.type]) {
+			//if (key exists), do this: 
+			console.log(typeof(answer[obj.type]));
 			answer[obj.type].push(obj.data);
 		} else {
 			answer[obj.type] = [obj.data];
@@ -333,23 +433,11 @@ const confirmReentryPlans = (speed, missionData, checks) => {
 
 // Each message should be parsed using the same structure as the first challenge;
 
-const parseMessage = (obj) =>{
-	transcript= [];
- for (let obj of exchanges){
-	 transcript.push(`${obj.origin}: ${obj.message}`)
- } return transcript;
-
-}
-
-const parseMissionSummary = (exchanges, missionData) => {
-
- 
-}
-
 const parseMissionSummary = (exchanges, missionData) => {
 	transcript= [];
  for (let obj of exchanges){
 	 transcript.push(`${obj.origin}: ${obj.message}`)
  }
  let newObject = {transcript, missionData};
+ return newObject;
 }
